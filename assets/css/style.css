@@ -5,3 +5,30 @@
 
 body {background-image: url('https://pixabay.com/photos/boat-sundown-sunset-sky-clouds-164989/');}
 
+.weatherIcon {
+
+    height: 200px;
+    width: 200px;
+    align-content: center;
+}
+
+.card {
+    background-color: red;
+}
+
+.row{
+    background-color: grey;
+    border-top: 2px solid black; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.img-thumbnail {
+    height: 300px;
+    width: 300px;
+    background-color: black;
+}
+
+#resultsBackground{
+    background-image: url('https://www.pexels.com/photo/group-of-people-eating-together-3184195/');
+}
