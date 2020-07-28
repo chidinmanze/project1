@@ -1,9 +1,11 @@
 #picture{
+
     background-image: url('https://images.pexels.com/photos/3475617/pexels-photo-3475617.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-size: cover;
 }
 
 h1 { 
+
     text-align: center;
     color: white;
     text-decoration: solid;
@@ -18,19 +20,23 @@ h1 {
 
 }
 
+body {
 
-
-body {background-image: url('https://pixabay.com/photos/boat-sundown-sunset-sky-clouds-164989/');
-background-color: rgb(142, 196, 209);
+    background-image: url('https://pixabay.com/photos/boat-sundown-sunset-sky-clouds-164989/');
+    background-color: rgb(142, 196, 209);
 
 }
 
 #search {
+
     padding-bottom: 20px;
+
 }
 
 #search-button {
+
     color: grey;
+
 }
 
 .weatherIcon {
@@ -38,54 +44,66 @@ background-color: rgb(142, 196, 209);
     height: 50px;
     width: 50px;
     display: block;
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     
 }
 
 h2 {
+
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+
 }
 
 h5{
+
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: bold;
+
 }
 
 .card {
+
     background-color:white;
     margin: 20px;
  
 }
 
 #days {
-padding: 5px;
-margin: 5px;
-align-content: center;
-width:1000px;
+
+    padding: 5px;
+    margin: 5px;
+    align-content: center;
+    width:1000px;
+
 }
 
 .img-thumbnail {
+
     height: 300px;
     width: 300px;
     background-color: rgb(122, 120, 120);
+
 }
 
 .name {
-font-size: 20px;
-font-weight: bold;
+
+    font-size: 20px;
+    font-weight: bold;
 
 }
 
 #resultsBackground{
+
     background-color: aliceblue;
     margin: 30px;
 
 }
 
-#row1, #row2, #row3, #row4, #row5, #row6, #row7, #row8, #row9, #row10{
+#row{
+
     border-top: 2px solid black; 
     padding-top: 30px;
     padding-bottom: 10px;
