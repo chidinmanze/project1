@@ -2,346 +2,128 @@
 <html lang="en">
   
   <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <!-- Bootstrap -->
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link 
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" 
+    >
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <title>WeatherDine</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
   </head>
   
-<body>
-  <header>
-  <!-- Top picture -->
-    <div id="picture" class="jumbotron jumbotron-fluid">
-    <div class="container" >
-    <h1 class="display-4">WeatherDine</h1>
-    <p class="lead"> Helping travelers create the best experiences. </p>
-    </div>
-    </div>
-  </header>
+  <body>
 
-  <!-- Container Details  -->
-  <div class="container">
-  <div class="row">
-  <div class="col-lg-12">
-  <div class="row">
-  <div class="col-sm-4">
-    
-  <!-- Input Field for Search -->
-  <div class="input-group" id="search">
-       <input type="text" class="form-control align-text-middle" placeholder="Discover" aria-label="enter city name"      
-       aria-describedby="search button">
-  <div class="input-group-append search">
-  <button class="btn btn-outline-secondary" type="button" id="search-button">
-       <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
-       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-       <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-  </svg>
-  </button>
-  </div>
-  </div>
-  </div>
-  </div>
-          
-<!-- History drop down -->
-  <div class="dropdown">
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      id="dropdownMenuButton"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false">
-  </button>
-    Dropdown button
-  </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-    </div>
-    </div>
-    </div>
+    <header>
+
+      <!-- Top picture -->
+      <div id="picture" class="jumbotron jumbotron-fluid">
+        <div class="container" >
+          <h1 class="display-4">WeatherDine</h1>
+          <p class="lead"> Helping travelers create the best experiences. </p>
+        </div>
+      </div>
+
+    </header>
+
+    <!-- Container Details  -->
+    <div class="container">
       
-<!-- 5 Day Weather Cardstyle Layout -->
-  <div class="row">
-  <div class="col-sm-4-md-8-lg-12">
-      <h2 id="city time">City Name & Time</h2>
-  <div class="card-group" id="days">
-  <div class="card" id="day1card">
-      <img src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/64x64/sun.small.cloud.png" class="weatherIcon" alt="weatherIcon"/>
-  <div class="card-body">
-      <h5 class="fiveday" id="day1">Date</h5>
-      <br>
-      <p class="card-text" id= Temp>
-      Temperature
-      </p>
-      <p>Wind</p>
-      <p>Humidity </p>
-      <p> UV </p>
-  </div>
-  </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-sm-4">
+      
+              <!-- Input Field for Search -->
+              <div class="input-group">
+
+                <input type="text" class="form-control align-text-middle" id="search" placeholder="Discover" aria-label="enter city name" aria-describedby="search button">
+
+              <div class="input-group-append search">
+
+              <button class="btn btn-outline-secondary" type="button" id="search-button">
+
+                <!-- Search button icon -->
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                </svg>
+
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
             
-  <div class="card" id="day2card">
-    <img src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/64x64/sun.small.cloud.png" class="weatherIcon"alt="weatherIcon" />
-  <div class="card-body">
-      <h5 class="fiveday" id="day2">Date</h5>
-      <br>
-      <p class="card-text" id= Temp>
-      Temperature</p>
-      <p>Wind</p>
-      <p>Humidity </p>
-      <p> UV </p>
-  </div>
-  </div>
+      <!-- History drop down -->
+      <div class="dropdown">
 
-  <div class="card" id="day3card">
-    <img src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/64x64/sun.small.cloud.png" class="weatherIcon" alt="weatherIcon" />
-  <div class="card-body">
-      <h5 class="fiveday" id="day3">Date</h5>
-      <br>
-      <p class="card-text" id= Temp>
-      Temperature</p>
-      <p>Wind</p>
-      <p>Humidity </p>
-      <p> UV </p>
-  </div>
-  </div>     
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false">
 
-  <div class="card" id="day4card">
-    <img src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/64x64/sun.small.cloud.png" class="weatherIcon" alt="weatherIcon" />
-  <div class="card-body">
-        <h5 class="fiveday" id="day4"> Date</h5>
-        <br>
-        <p class="card-text" id= Temp>
-        Temperature</p>
-        <p>Wind</p>
-        <p>Humidity </p>
-        <p> UV </p>
-  </div>
-  </div>
+          Dropdown button
 
-  <div class="card" id="day5card">
-    <img src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/64x64/sun.small.cloud.png" class="weatherIcon" alt="weatherIcon" />
-        <div class="card-body">
-        <h5 class="fiveday" id="day5">Date</h5>
-        <br>
-        <p class="card-text" id= Temp> 
-        Temperature</p>
-        <p>Wind</p>
-        <p>Humidity </p>
-        <p> UV </p>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
+        </button>
 
-<!-- Result Row 1 -->
-  <div class="container" id="resultsBackground">
-  <div class="row" id="row1">
-  <div class="col-lg-4">
-        <img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults1">
-  </div>
-  
-  <div class="col-lg-8">
-        <p id="name1" class="name"> NAME</p>
-        <br>
-        <P id="address1" class="address"> Address</P>
-        <br>
-        <p id="phone1" class="phone"> Phone Number</p>
-        <br>
-        <P id="rating1" class="rating"> Ratings</P>
-        <br>
-        <P id="link1" class="link"> Link to Restaurant</P>
-  </div>
-  </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
 
-
-  <!-- Result Row 2 -->
-  <div class="row" id="row2">
-  
-  <div class="col-lg-4">
-        <img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults2">
-  </div>
-    
-  <div class="col-lg-8">
-        <p id="name2" class="name"> NAME</p>
-        <br>
-        <P id="address2" class="address"> Address</P>
-        <br>
-        <p id="phone2" class="phone"> Phone Number</p>
-        <br>
-        <P id="rating2" class="rating"> Ratings</P>
-        <br>
-        <P id="link2" class="link"> Link to Restaurant</P>
-  </div>
-  </div>
-
-    <!-- Result Row 3 -->
-  <div class="row" id="row3">
-  <div class="col-lg-4">
-        <img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults3">
-  </div>
+      </div>
       
-  <div class="col-lg-8">
-        <p id="name3" class="name"> NAME</p>
-        <br>
-        <P id="address3" class="address"> Address</P>
-        <br>
-        <p id="phone3" class="phone"> Phone Number</p>
-        <br>
-        <P id="rating3" class="rating"> Ratings</P>
-        <br>
-        <P id="link3" class="link"> Link to Restaurant</P>
-  </div>
-  </div>
-
-      <!-- Result Row 4 -->
-  <div class="row" id="row4">
-  
-  <div class="col-lg-4">
-        <img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults4">
-  </div>
         
-  <div class="col-lg-8">
-        <p id="name3" class="name"> NAME</p>
-        <br>
-        <P id="address3" class="address"> Address</P>
-        <br>
-        <p id="phone3" class="phone"> Phone Number</p>
-        <br>
-        <P id="rating3" class="rating"> Ratings</P>
-        <br>
-        <P id="link3" class="link"> Link to Restaurant</P>
-    </div>
-    </div>
+      <!-- 5 Day Weather Cardstyle Layout -->
+      <div class="row justify-content-center">
+        <div class="col-sm-4-md-8-lg-12">
+          <h2 id="city-time"></h2>
+          <div class="card-group" id="days">
 
-          <!-- Result Row 5 -->
-      <div class="row" id="row5">
-  
-  <div class="col-lg-4">
-      <img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults5">
-  </div>
+            <!-- Programatically added weather cards --> 
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="container" id="resultsBackground">
         
-  <div class="col-lg-8">
-      <p id="name3" class="name"> NAME</p>
-      <br>
-      <P id="address3" class="address"> Address</P>
-      <br>
-      <p id="phone3" class="phone"> Phone Number</p>
-      <br>
-      <P id="rating3" class="rating"> Ratings</P>
-      <br>
-      <P id="link3" class="link"> Link to Restaurant</P>
-    </div>
+        <!-- Programatically added results cards --> 
+      
+      </div>
+
     </div>
 
-  <!-- Result Row 6 -->
-  <div class="row" id="row6">
+  </body>
+
+  <!-- JQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
-  <div class="col-lg-4">
-    <img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults6">
-  </div>
-  
-  <div class="col-lg-8">
-    <p id="name3" class="name"> NAME</p>
-    <br>
-    <P id="address3" class="address"> Address</P>
-    <br>
-    <p id="phone3" class="phone"> Phone Number</p>
-    <br>
-    <P id="rating3" class="rating"> Ratings</P>
-    <br>
-    <P id="link3" class="link"> Link to Restaurant</P>
-  </div>
-  </div>
+  <!-- script.js relative path -->
+  <script src="assets/js/script.js"></script>
 
-<!-- Result Row 7 -->
-<div class="row" id="row7">
-  
-<div class="col-lg-4">
-<img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults7">
-</div>
+  <!-- moment api library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.31/moment-timezone-with-data-10-year-range.js"></script>
 
-<div class="col-lg-8">
-    <p id="name3" class="name"> NAME</p>
-    <br>
-    <P id="address3" class="address"> Address</P>
-    <br>
-    <p id="phone3" class="phone"> Phone Number</p>
-    <br>
-    <P id="rating3" class="rating"> Ratings</P>
-    <br>
-    <P id="link3" class="link"> Link to Restaurant</P>
-</div>
-</div>
-
-<!-- Result Row 8 -->
-<div class="row" id="row6">
-  
-<div class="col-lg-4">
-<img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults8">
-</div>
-
-<div class="col-lg-8">
-    <p id="name3" class="name"> NAME</p>
-    <br>
-    <P id="address3" class="address"> Address</P>
-    <br>
-    <p id="phone3" class="phone"> Phone Number</p>
-    <br>
-    <P id="rating3" class="rating"> Ratings</P>
-    <br>
-    <P id="link3" class="link"> Link to Restaurant</P>
-</div>
-</div>
-
-<!-- Result Row 9 -->
-<div class="row" id="row9">
-  
-<div class="col-lg-4">
-<img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults9">
-</div>
-
-<div class="col-lg-8">
-    <p id="name3" class="name"> NAME</p>
-    <br>
-    <P id="address3" class="address"> Address</P>
-    <br>
-    <p id="phone3" class="phone"> Phone Number</p>
-    <br>
-    <P id="rating3" class="rating"> Ratings</P>
-    <br>
-    <P id="link3" class="link"> Link to Restaurant</P>
-</div>
-</div>
-
-
-  <!-- Result Row 10 -->
-<div class="row" id="row10">
-
-<div class="col-lg-4">
-<img src="https://www.rev6sports.com/wp-content/uploads/2015/04/placeholder-200x200-300x300.png" alt="pictureResults" class="img-thumbnail" id="pictureResults10">
-</div>
-
-<div class="col-lg-8">
-    <p id="name3" class="name"> NAME</p>
-    <br>
-    <P id="address3" class="address"> Address</P>
-    <br>
-    <p id="phone3" class="phone"> Phone Number</p>
-    <br>
-    <P id="rating3" class="rating"> Ratings</P>
-    <br>
-    <P id="link3" class="link"> Link to Restaurant</P>
-</div>
-</div>
-
-</div>
-
-</body>
 </html>
