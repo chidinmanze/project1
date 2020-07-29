@@ -1,8 +1,16 @@
 $("#search-button").on("click", function() {
 
     var c = $("#search").val();
-    //var d = $("#dist-input").val();
-    var d = $("#radius").val();
+    
+    if($("#radius").val() == "") {
+
+        var d = "1";
+
+    }else{
+
+        var d = $("#radius").val();
+
+    }
 
     firstCall(c,d)
 
@@ -69,14 +77,19 @@ function oneCall(r) {
 }
 
 
+function updateTime(r) {
+
+    var dateTime = moment().tz(r.timezone).format('MMMM Do YYYY, h:mm:ss a')
+    $("#city-time").text(r.name + " - " + dateTime);
+    
+}
+
 // function display5Day displays 5-day forecast weather data from local storage to the 5-day forecast weather area
 function display5Day(r) {
 
     var forecastConditions = r;
 
-    var dateTime = moment.unix(forecastConditions.current.dt).tz(forecastConditions.timezone).format('dddd, MMMM Do - h:mm a');
-
-    $("#city-time").text(forecastConditions.name + " - " + dateTime);
+    setInterval(updateTime(r),1000);
 
     $("#days").empty();
 
@@ -97,17 +110,24 @@ function display5Day(r) {
         $(cardContainer).attr("id","day" + i + "card");
         $("#days").append(cardContainer);
 
+        // create weather icon image source url with current weather icon - used small icon by removing @2x in the URL
+        var imgURL = "assets/css/images/weather-icons/" + forecastConditions.daily[i].weather[0].icon + ".png";
+
         $(cardImage).addClass("weatherIcon");
         $(cardImage).attr("alt","weatherIcon");
-        $(cardImage).attr("src","http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/64x64/sun.small.cloud.png");
+        $(cardImage).attr("src", imgURL);
         $(cardContainer).append(cardImage);
 
         $(cardBody).addClass("card-body");
         $(cardContainer).append(cardBody);
 
-        // get date (MM/DD) using moment-timezone.js
-        var date = moment.unix(forecastConditions.daily[i].dt).tz(forecastConditions.timezone).format('dddd');;
-
+        if (i==0) {
+            var date = "Today";
+        }else{
+            // get date (MM/DD) using moment-timezone.js
+            var date = moment.unix(forecastConditions.daily[i].dt).tz(forecastConditions.timezone).format('dddd');
+        }
+        
         $(cardDate).addClass("fiveday");
         $(cardDate).attr("id","day" + i);
         $(cardDate).text(date);
@@ -136,18 +156,18 @@ function display5Day(r) {
 
 }
 
-//              *** NOT YET INCLUDED ***
-// -----------------------------------------------------
-// $("#check-box").on("change", function() {
-//     // this will contain a reference to the checkbox   
-//     if (this.checked) {
-//         // the checkbox is now checked
-//         $("#search-radius-input").removeClass("hide");
-//     } else {
-//         // the checkbox is now no longer checked
-//         $("#search-radius-input").addClass("hide");
-//     }
-// });
+
+$("#check-box").on("change", function() {
+    // this will contain a reference to the checkbox   
+    if (this.checked) {
+        // the checkbox is now checked
+        $("#search-radius-input").removeClass("hide");
+    } else {
+        // the checkbox is now no longer checked
+        $("#search-radius-input").addClass("hide");
+    }
+});
+
 
 function firstCall(c, d) { 
 
@@ -200,16 +220,6 @@ function newCall(r,d) {
 
     .then(function(response){
 
-
-        var cuisineName = $("<div>");
-        $(cuisineName).attr("id", "#cuisine_name");
-        $(cuisineName).addClass("card col-md-5 bg-secondary");
-        // cuisineName.html(`<h2>${response.establishments[0].establishement}</h2>`);
-        
-        $(cuisineName).text("Nightlife Index: " + response.nightlife_index);
-        
-        $("#suggestions-div").append(cuisineName);
-
         locationDetails(cityId, distance);
 
     })
@@ -253,16 +263,16 @@ function displayResults(response) {
         var imageContainer = $("<div>");
         var infoContainer = $("<div>");
         var name = $("<p>");
+        var cuisine = $("<p>");
+        var cuisineIcon = $("<i>");
         var address = $("<p>");
-
-        // *** TESTING ICON ***
-        // ------------------------------------------------
-        // var addressIcon = $("<svg>")
-        // var addrIconPath = $("<path>")
-
+        var addressIcon = $("<i>");
         var phone = $("<p>");
+        var phoneIcon = $("<i>");
         var ratings = $("<p>");
+        var ratingIcon = $("<i>");
         var link = $("<a>");
+        var linkIcon = $("<i>");
         
         $(rowContainer).addClass("row");
         $(rowContainer).attr("id","row");
@@ -292,71 +302,38 @@ function displayResults(response) {
         $(name).addClass("name");
         $(name).text(response.restaurants[i].restaurant.name);
         $(infoContainer).append(name);
+
+        $(cuisine).addClass("cuisines");
+        $(cuisineIcon).addClass("fas fa-utensils");
+        $(cuisineIcon).text("   " + response.restaurants[i].restaurant.cuisines);
+        $(cuisine).append(cuisineIcon);
+        $(infoContainer).append(cuisine);
         
         $(address).addClass("address");
-        $(address).text(response.restaurants[i].restaurant.location.address);
+        $(addressIcon).addClass("fas fa-map-marker-alt");
+        $(addressIcon).text("   " + response.restaurants[i].restaurant.location.address);
+        $(address).append(addressIcon);
         $(infoContainer).append(address);
 
-        // *** TESTING ICON ***
-        // ------------------------------------------------
-        // $(addressIcon).addClass("bi bi-geo-alt");
-        // $(addressIcon).attr("width","1em");
-        // $(addressIcon).attr("height","1em");
-        // $(addressIcon).attr("viewBox","0 0 16 16");
-        // $(addressIcon).attr("fill","currentColor");
-        // $(addressIcon).attr("xmlns","http://www.w3.org/2000/svg");
-        // $(address).append(addressIcon);
-
-        // $(addrIconPath).attr("fill-rule","evenodd");
-        // $(addrIconPath).attr("d","M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z");
-        // $(addressIcon).append(addrIconPath);
-
         $(phone).addClass("phone");
-        $(phone).text(response.restaurants[i].restaurant.phone_numbers);
+        $(phoneIcon).addClass("fas fa-phone");
+        $(phoneIcon).text("   " + response.restaurants[i].restaurant.phone_numbers);
+        $(phone).append(phoneIcon);
         $(infoContainer).append(phone);
 
         $(ratings).addClass("rating");
-        $(ratings).text(response.restaurants[i].restaurant.user_rating.aggregate_rating);
+        $(ratingIcon).addClass("fas fa-star");
+        $(ratingIcon).text("   " + response.restaurants[i].restaurant.user_rating.aggregate_rating);
+        $(ratings).append(ratingIcon);
         $(infoContainer).append(ratings);
 
         $(link).addClass("link");
-
         $(link).attr("href", response.restaurants[i].restaurant.url);
-        $(link).text(response.restaurants[i].restaurant.url);
+        $(linkIcon).addClass("fas fa-external-link-alt");
+        $(linkIcon).text("   " + response.restaurants[i].restaurant.name);
+        $(link).append(linkIcon);
         $(infoContainer).append(link);
     
     }
 
 }
-
-
-// *** IMAGE SEARCH NOT YET RESOLVED ***
-// ---------------------------------------------------------------------------------------------
-// function imgsearch(search) {
-
-//     var api_key = "563492ad6f917000010000015aea16df69ed4377baae9a021dfcef88"
-
-//     // querry url for open weather api call
-//     var queryURL = "https://api.pexels.com/v1/search?query=" + search + "&per_page=1";
-
-//     // ajax call to the open weather api - fetch(queryURL) may also be used for this pourpose
-//     $.ajax({
-//         headers: {"Authorization": api_key},
-//         url: queryURL,
-//         method: "GET",
-//     })
-    
-//     // promise - on api responce, execute the following
-//     .then(function(response) {
-
-//         console.log("https://api.pexels.com/v1/search?query=" + search + "&per_page=1")
-
-//         var URL = response.photos[0].src.medium;
-
-//         localStorage.setItem("foodImgUrl",URL);
-
-//         resolve(response);
-
-//     });
-
-// }
