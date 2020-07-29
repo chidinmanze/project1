@@ -10,7 +10,7 @@ The following image demonstrates the application functionality:
 
 ## Features
 
-![WeatherDine demo](assets/css/images/WeatherDineDisplay.PNG)
+![WeatherDine demo](assets/css/images/WeatherDineDisplay.png)
 
 - Travel inspired header image
 - Search input that receives user data
