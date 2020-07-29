@@ -8,7 +8,7 @@ WeatherDine is a website that helps travelers make their travel plans a little s
 
 ## Features
 
-<img src="./assets/css/images/WeatherDineDisplay.png" alt="WeatherDine Demo>
+<img src="/assets/css/images/WeatherDineDisplay.png" alt="WeatherDine Demo>
 
 - Travel inspired header image
 - Search input that receives user data
