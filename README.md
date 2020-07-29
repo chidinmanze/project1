@@ -4,11 +4,11 @@ https://chidinmanze.github.io/project1/
 
 WeatherDine is a website that helps travelers make their travel plans a little smoother by providing weather and restaurants information when a city is searched. The weather information integrated into our site from the OpenWeatherMap API, and restaurant results are integrated from the Zomato API.
 
-![WeatherDine demo](assets\css\images\WeatherDine.gif)
+<img src="https://github.com/chidinmanze/project1/blob/master/assets/css/images/WeatherDine.gif alt="WeatherDine live demo">
 
 ## Features
 
-<img src="./assets/css/images/WeatherDineDisplay.png" alt="WeatherDine Demo>
+<img src="https://github.com/chidinmanze/project1/blob/master/assets/css/images/WeatherDineDisplay.png" alt="WeatherDine Demo>
 
 - Travel inspired header image
 - Search input that receives user data
